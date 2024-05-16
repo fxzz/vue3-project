@@ -1,5 +1,5 @@
 <template>
-  <div class="text-3xl">Main Page</div>
+  <div class="text-3xl font-extrabold">Todo Modify Page</div>
 </template>
 <script setup></script>
 <style></style>
