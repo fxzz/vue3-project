@@ -26,11 +26,11 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const handleClickList = () => {
-  router.push("list");
+  router.push("/todo/list");
 };
 
 const handleClickAdd = () => {
-  router.push("add");
+  router.push("/todo/add");
 };
 </script>
 <style></style>

@@ -6,7 +6,7 @@
         v-for="todo in data.dtoList"
         :key="todo.tno"
       >
-        <div class="flex">
+        <div class="flex" @click="moveToRead(todo.tno)">
           <div class="font-extrabold text-2xl p-2 w-1/12">
             {{ todo.tno }}
           </div>
@@ -45,7 +45,7 @@ const initState = {
 };
 
 const data = reactive({ ...initState });
-const { moveToList } = customMove();
+const { moveToList, moveToRead } = customMove();
 
 const fetchListData = async () => {
   try {

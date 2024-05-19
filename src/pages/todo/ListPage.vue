@@ -1,8 +1,8 @@
 <template>
-  <div class="p-4 w-full bg-orange-200">
+  <div class="p-4 w-full bg-white">
     <div class="text-3xl font-extrabold">Todo List Page Component</div>
+    <ListComponent />
   </div>
-  <ListComponent />
 </template>
 <script setup>
 import ListComponent from "../../components/todo/ListComponent.vue";

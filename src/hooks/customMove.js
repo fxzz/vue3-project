@@ -5,13 +5,13 @@ import { useRouter } from "vue-router";
 const customMove = () => {
   const route = useRoute();
   const router = useRouter();
+  //const paramTno = route.params.tno;
 
-  const paramTno = route.params.tno;
-
-  const page = parseInt(route.query.page) || 1;
-  const size = parseInt(route.query.size) || 10;
-
-  const queryParams = { page: page, size: size };
+  const getQueryParams = () => {
+    const page = parseInt(route.query.page) || 1;
+    const size = parseInt(route.query.size) || 10;
+    return { page, size };
+  };
 
   const moveToList = (pageParam) => {
     let queryStr = "";
@@ -21,7 +21,7 @@ const customMove = () => {
       const sizeNum = parseInt(pageParam.size) || 10;
       queryStr = { page: pageNum, size: sizeNum };
     } else {
-      queryStr = queryParams;
+      queryStr = getQueryParams();
     }
 
     router.push({
@@ -33,11 +33,18 @@ const customMove = () => {
   const moveToModify = (num) => {
     router.push({
       path: `../modify/${num}`,
-      query: queryParams,
+      query: getQueryParams(),
     });
   };
 
-  return { moveToList, moveToModify };
+  const moveToRead = (num) => {
+    router.push({
+      path: `/todo/read/${num}`,
+      query: getQueryParams(),
+    });
+  };
+
+  return { moveToList, moveToModify, moveToRead };
 };
 
 export default customMove;
